@@ -26,4 +26,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: ./out/deposited-cycles.html
+          files: |
+            ./html/deposited-cycles.html
+            ./text/deposited-cycles.txt
