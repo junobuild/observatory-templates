@@ -17,17 +17,15 @@ interface GithubAccessTokenEmailProps {
   timestamp?: string;
   module?: string;
   name?: string;
-  path?: string;
+  url?: string;
 }
-
-const consoleUrl = "https://console.juno.build";
 
 export const GithubAccessTokenEmail = ({
   name = "{{name}}",
   timestamp = "{{timestamp}}",
   module = "{{module}}",
   cycles = "{{cycles}}",
-  path = "{{path}}",
+  url = "{{url}}",
 }: GithubAccessTokenEmailProps) => (
   <Html>
     <Head />
@@ -85,18 +83,14 @@ export const GithubAccessTokenEmail = ({
             <strong>Time:</strong> {timestamp}
           </Text>
 
-          <Button href={`${consoleUrl}${path}`} style={button}>
+          <Button href={url} style={button}>
             View your module
           </Button>
 
           <Text style={text}>
             or copy and paste this URL into your browser:{" "}
-            <Link
-              href={`${consoleUrl}${path}`}
-              rel="noreferrer noopener"
-              style={link}
-            >
-              {`${consoleUrl}${path}`}
+            <Link href={url} rel="noreferrer noopener" style={link}>
+              {url}
             </Link>
           </Text>
 
@@ -122,7 +116,7 @@ GithubAccessTokenEmail.PreviewProps = {
   module: "Satellite",
   name: "Hello",
   timestamp: "September 7, 2022 at 10:58 AM",
-  path: "/satellite/?s=ucnx3-aqaaa-aaaal-ab3ea-cai",
+  url: "https://console.juno.build/satellite/?s=ucnx3-aqaaa-aaaal-ab3ea-cai",
 } as GithubAccessTokenEmailProps;
 
 export default GithubAccessTokenEmail;
