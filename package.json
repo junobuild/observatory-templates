@@ -5,7 +5,7 @@
   "scripts": {
     "build": "email build",
     "dev": "email dev",
-    "export": "email export",
+    "export": "email export --outDir html && email export --plainText --outDir text",
     "format": "prettier --write ."
   },
   "dependencies": {

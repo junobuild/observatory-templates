@@ -9,6 +9,8 @@
 
 # export output
 out/
+html/
+text/
 # build output
 .react-email/
 
