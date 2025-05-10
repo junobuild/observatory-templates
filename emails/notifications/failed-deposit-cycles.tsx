@@ -105,7 +105,6 @@ export const FailedDepositCyclesEmail = ({
 );
 
 FailedDepositCyclesEmail.PreviewProps = {
-  cycles: "0.01",
   module: "Satellite",
   name: "Hello",
   timestamp: "September 7, 2022 at 10:58 AM",
