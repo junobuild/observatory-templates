@@ -12,7 +12,7 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-interface GithubAccessTokenEmailProps {
+interface DepositedCyclesEmailProps {
   cycles?: string;
   timestamp?: string;
   module?: string;
@@ -20,13 +20,13 @@ interface GithubAccessTokenEmailProps {
   url?: string;
 }
 
-export const GithubAccessTokenEmail = ({
+export const DepositedCyclesEmail = ({
   name = "{{name}}",
   timestamp = "{{timestamp}}",
   module = "{{module}}",
   cycles = "{{cycles}}",
   url = "{{url}}",
-}: GithubAccessTokenEmailProps) => (
+}: DepositedCyclesEmailProps) => (
   <Html>
     <Head />
     <Preview>
@@ -111,15 +111,15 @@ export const GithubAccessTokenEmail = ({
   </Html>
 );
 
-GithubAccessTokenEmail.PreviewProps = {
+DepositedCyclesEmail.PreviewProps = {
   cycles: "0.01",
   module: "Satellite",
   name: "Hello",
   timestamp: "September 7, 2022 at 10:58 AM",
   url: "https://console.juno.build/satellite/?s=ucnx3-aqaaa-aaaal-ab3ea-cai",
-} as GithubAccessTokenEmailProps;
+} as DepositedCyclesEmailProps;
 
-export default GithubAccessTokenEmail;
+export default DepositedCyclesEmail;
 
 const main = {
   backgroundColor: "#ffffff",
