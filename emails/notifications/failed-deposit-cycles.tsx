@@ -13,26 +13,22 @@ import {
 import * as React from "react";
 import { styles } from "../_core/styles";
 
-interface DepositedCyclesEmailProps {
-  cycles?: string;
+interface FailedDepositCyclesEmailProps {
   timestamp?: string;
   module?: string;
   name?: string;
   url?: string;
 }
 
-export const DepositedCyclesEmail = ({
+export const FailedDepositCyclesEmail = ({
   name = "{{name}}",
   timestamp = "{{timestamp}}",
   module = "{{module}}",
-  cycles = "{{cycles}}",
   url = "{{url}}",
-}: DepositedCyclesEmailProps) => (
+}: FailedDepositCyclesEmailProps) => (
   <Html>
     <Head />
-    <Preview>
-      🚀 {cycles} T Cycles Deposited on Your {module}
-    </Preview>
+    <Preview>❗️Cycles Deposit Failed on Your {module}</Preview>
     <Body style={styles.main}>
       <Container style={styles.container}>
         <Section style={styles.logo}>
@@ -60,7 +56,7 @@ export const DepositedCyclesEmail = ({
                 cx="931.86"
                 cy="68.14"
                 r="68.14"
-                fill="#7888ff"
+                fill="#ea385f"
               ></circle>
             </g>
           </svg>
@@ -68,8 +64,8 @@ export const DepositedCyclesEmail = ({
 
         <Section style={styles.section}>
           <Text style={styles.title}>
-            <strong>{cycles} T Cycles</strong> have been deposited on your{" "}
-            <strong>{module}</strong>.
+            An attempt to deposit cycles on your <strong>{module}</strong> has
+            failed!
           </Text>
 
           <Text style={styles.text}>
@@ -77,20 +73,16 @@ export const DepositedCyclesEmail = ({
           </Text>
 
           <Text style={styles.text}>
-            <strong>Amount:</strong> {cycles} T Cycles
-          </Text>
-
-          <Text style={styles.text}>
             <strong>Time:</strong> {timestamp}
           </Text>
 
-          <Button href={url} style={styles.button}>
+          <Button href={url} style={styles.errorButton}>
             View your module
           </Button>
 
           <Text style={styles.text}>
             or copy and paste this URL into your browser:{" "}
-            <Link href={url} rel="noreferrer noopener" style={styles.link}>
+            <Link href={url} rel="noreferrer noopener" style={styles.errorLink}>
               {url}
             </Link>
           </Text>
@@ -112,12 +104,11 @@ export const DepositedCyclesEmail = ({
   </Html>
 );
 
-DepositedCyclesEmail.PreviewProps = {
-  cycles: "0.01",
+FailedDepositCyclesEmail.PreviewProps = {
   module: "Satellite",
   name: "Hello",
   timestamp: "September 7, 2022 at 10:58 AM",
   url: "https://console.juno.build/satellite/?s=ucnx3-aqaaa-aaaal-ab3ea-cai",
-} as DepositedCyclesEmailProps;
+} as FailedDepositCyclesEmailProps;
 
-export default DepositedCyclesEmail;
+export default FailedDepositCyclesEmail;
