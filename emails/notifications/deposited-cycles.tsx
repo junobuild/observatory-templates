@@ -11,6 +11,7 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
+import { styles } from "../_core/styles";
 
 interface DepositedCyclesEmailProps {
   cycles?: string;
@@ -32,9 +33,9 @@ export const DepositedCyclesEmail = ({
     <Preview>
       🚀 {cycles} T Cycles Deposited on Your {module}
     </Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Section style={logo}>
+    <Body style={styles.main}>
+      <Container style={styles.container}>
+        <Section style={styles.logo}>
           <svg
             id="Layer_2"
             xmlns="http://www.w3.org/2000/svg"
@@ -65,44 +66,44 @@ export const DepositedCyclesEmail = ({
           </svg>
         </Section>
 
-        <Section style={section}>
-          <Text style={title}>
+        <Section style={styles.section}>
+          <Text style={styles.title}>
             <strong>{cycles} T Cycles</strong> have been deposited on your{" "}
             <strong>{module}</strong>.
           </Text>
 
-          <Text style={text}>
+          <Text style={styles.text}>
             <strong>Module:</strong> {module} ({name})
           </Text>
 
-          <Text style={text}>
+          <Text style={styles.text}>
             <strong>Amount:</strong> {cycles} T Cycles
           </Text>
 
-          <Text style={text}>
+          <Text style={styles.text}>
             <strong>Time:</strong> {timestamp}
           </Text>
 
-          <Button href={url} style={button}>
+          <Button href={url} style={styles.button}>
             View your module
           </Button>
 
-          <Text style={text}>
+          <Text style={styles.text}>
             or copy and paste this URL into your browser:{" "}
-            <Link href={url} rel="noreferrer noopener" style={link}>
+            <Link href={url} rel="noreferrer noopener" style={styles.link}>
               {url}
             </Link>
           </Text>
 
-          <Hr style={hr} />
+          <Hr style={styles.hr} />
 
-          <Text style={contact}>
+          <Text style={styles.contact}>
             If you have any questions, please reply to this email to get in
             touch with us.
           </Text>
         </Section>
 
-        <Text style={footer}>
+        <Text style={styles.footer}>
           Juno Build ・ c/o The Hub Zürich Association ・ Sihlquai 131 ・ 8005
           Zürich, CH
         </Text>
@@ -120,70 +121,3 @@ DepositedCyclesEmail.PreviewProps = {
 } as DepositedCyclesEmailProps;
 
 export default DepositedCyclesEmail;
-
-const main = {
-  backgroundColor: "#ffffff",
-  color: "#24292e",
-  fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
-};
-
-const container = {
-  maxWidth: "480px",
-  margin: "0 auto",
-  padding: "20px 0 48px",
-};
-
-const logo = {
-  padding: "20px 0",
-};
-
-const title = {
-  fontSize: "24px",
-  lineHeight: 1.25,
-  padding: "0 0 10px",
-};
-
-const section = {
-  padding: "24px",
-  border: "solid 1px #dedede",
-  borderRadius: "5px",
-  textAlign: "center" as const,
-};
-
-const text = {
-  margin: "0 0 5px 0",
-  textAlign: "left" as const,
-};
-
-const contact = {
-  ...text,
-  fontSize: "12px",
-};
-
-const hr = {
-  margin: "24px 0",
-};
-
-const button = {
-  fontSize: "14px",
-  backgroundColor: "#c9cfff",
-  color: "#000",
-  lineHeight: 1.5,
-  borderRadius: "3px",
-  boxShadow: "4px 4px #000",
-  border: "2px solid #000",
-  padding: "12px 24px",
-  margin: "20px auto 30px",
-};
-
-const footer = {
-  color: "#6a737d",
-  fontSize: "12px",
-  textAlign: "center" as const,
-  marginTop: "60px",
-};
-
-const link = {
-  color: "#7888ff",
-};
