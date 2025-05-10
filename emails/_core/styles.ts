@@ -54,6 +54,12 @@ const button = {
   margin: "20px auto 30px",
 };
 
+const errorButton = {
+  ...button,
+  backgroundColor: "#ea385f",
+  color: "#ffffff",
+};
+
 const footer = {
   color: "#6a737d",
   fontSize: "12px",
@@ -63,6 +69,10 @@ const footer = {
 
 const link = {
   color: "#7888ff",
+};
+
+const errorLink = {
+  color: "#ea385f",
 };
 
 export const styles = {
@@ -75,6 +85,8 @@ export const styles = {
   contact,
   hr,
   button,
+  errorButton,
   footer,
   link,
+  errorLink,
 };
