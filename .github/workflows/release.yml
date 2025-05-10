@@ -29,3 +29,5 @@ jobs:
           files: |
             ./html/deposited-cycles.html
             ./text/deposited-cycles.txt
+            ./html/failed-deposit-cycles.html
+            ./text/failed-deposit-cycles.txt
