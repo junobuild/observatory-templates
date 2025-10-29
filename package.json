@@ -6,7 +6,11 @@
     "build": "email build",
     "dev": "email dev",
     "export": "email export --outDir html && email export --plainText --outDir text",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "NODE_ENV=development playwright test",
+    "test:snapshots": "NODE_ENV=development playwright test --update-snapshots --reporter=list",
+    "test:ci": "playwright test --reporter=html",
+    "test:ci:snapshots": "playwright test --update-snapshots --reporter=html"
   },
   "dependencies": {
     "@react-email/components": "0.0.40",
