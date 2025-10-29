@@ -1,0 +1,31 @@
+name: Update Snapshots
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_snapshots:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail if branch is main
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          echo "This workflow should not be triggered with workflow_dispatch on main"
+          exit 1
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare
+        uses: ./.github/actions/prepare
+
+      - name: Run tests and update Snapshots
+        run: npm run test:ci:snapshots
+
+      - name: Commit Playwright updated snapshots
+        uses: EndBug/add-and-commit@v9
+        if: ${{ github.ref != 'refs/heads/main' }}
+        with:
+          add: tests
+          default_author: github_actions
+          message: "🤖 update snapshots"
